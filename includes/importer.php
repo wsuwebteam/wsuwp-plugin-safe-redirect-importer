@@ -71,7 +71,7 @@ class Importer {
 
 		foreach ( $redirects as $redirect ) {
 
-			if ( ! empty( $redirect[1] ) && ( false !== strpos( $redirect[1], 'https' ) ) ) {
+			if ( ! empty( $redirect[1] ) && ( false !== strpos( $redirect[1], 'http' ) ) ) {
 
 				wp_insert_post( 
 					array(
