@@ -2,7 +2,7 @@
 
 class Plugin {
 
-	protected static $version = '1.0.0';
+	protected static $version = '1.0.1';
 
 	public static function get( $property ) {
 		switch ( $property ) {
@@ -20,11 +20,22 @@ class Plugin {
 		}
 	}
 
+
+	public static function increase_srm_limit( $amount ) {
+
+		return 1000;
+
+	}
+
+
 	public static function init() {
 
 		require_once __DIR__ . '/importer.php';
 
+		add_filter( 'srm_max_redirects', array( __CLASS__, 'increase_srm_limit' ) );
+
 	}
+
 }
 
 Plugin::init();
